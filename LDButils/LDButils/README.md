@@ -10,7 +10,7 @@ Download the [zip ball](https://github.com/timriffe/LDButils/master) or
 ```r
 # install.packages("devtools")
 library(devtools)
-install_github("LDButils","timriffe",subdir="LDButils")
+install_github("LDButils","timriffe",subdir="LDButils/LDButils")
 ```
 
 **Note**: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
