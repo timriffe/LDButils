@@ -1,0 +1,7 @@
+export(loadMdeaths2R)
+export(loadMpops2R)
+export(saveRbirths2M)
+export(saveRdeaths2M)
+export(saveRpops2M)
+importFrom(R.matlab,readMat)
+importFrom(R.matlab,writeMat)

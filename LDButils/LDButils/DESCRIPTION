@@ -1,0 +1,21 @@
+Package: LDButils
+Type: Package
+Title: R utility functions to help cross-validate R and matlab LDB data objects
+Version: 0.0
+Date: 2013-11-04
+Author: Tim Riffe
+Maintainer: Tim Riffe <tim.riffe@gmail.com>
+Description: A small set of read and write functions for translating
+    Population, Deaths and (soon) Births and Tadj objects between the matlab
+    and R formats
+License: to be decided
+Depends:
+    R (>= 2.15)
+Imports:
+    R.matlab
+Collate:
+    'loadMdeaths2R.R'
+    'loadMpops2R.R'
+    'saveRdeaths2M.R'
+    'saveRpops2M.R'
+    'saveRbirths2M.R'
