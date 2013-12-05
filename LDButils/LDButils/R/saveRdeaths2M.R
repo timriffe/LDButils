@@ -34,6 +34,7 @@ saveRdeaths2M <- function(DeathsRDF, full.path.mat){
   DeathsM$RefCode   <- as.integer( DeathsM$RefCode)
   
   DeathsM <- as.matrix(DeathsM)
+  DeathsM[is.na(DeathsM)]    <- -1
   # mode(DeathsM)
   writeMat(full.path.mat, deaths = DeathsM) 
 }

@@ -36,6 +36,10 @@ saveRpops2M <- function(PopRDF, full.path.mat){
   PopM$Age[PopM$Age == "TOT"]               <- 300
   PopM$Age                                  <- as.integer(PopM$Age)
   PopM$Access          <- ifelse(PopM$Access == "O", 1, 0)
+  PopM$NoteCode1 <- as.integer( PopM$NoteCode1)
+  PopM$NoteCode2 <- as.integer( PopM$NoteCode2)
+  PopM$NoteCode3 <- as.integer( PopM$NoteCode3)
+  PopM$RefCode   <- as.integer( PopM$RefCode)
   
   PopM                 <- as.matrix(PopM)
   PopM[is.na(PopM)]    <- -1
