@@ -25,6 +25,6 @@ saveRbirths2M <- function(BirthsRDF, full.path.mat){
   
   BirthsM <- as.matrix(BirthsM)
   
-  writeMat(full.path.mat, deaths = BirthsM) 
+  writeMat(full.path.mat, births = BirthsM) 
 }
 
