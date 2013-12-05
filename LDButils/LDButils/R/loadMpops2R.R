@@ -15,9 +15,8 @@ loadMpops2R <- function(full.path.mat, PopName = "HUN"){
   
   if (!"IDButils" %in% installed.packages()[,"Package"]){
     devtools::install_github("IDButils","timriffe",subdir="IDButils/IDButils")
-    require(IDButils)
   }
-  
+  require(IDButils)
   # read in
   PopR                <- readMat(full.path.mat)[[1]]
   PopR[PopR == -1] <- NA
