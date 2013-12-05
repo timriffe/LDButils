@@ -12,6 +12,12 @@
 #' 
 
 loadMpops2R <- function(full.path.mat, PopName = "HUN"){
+  
+  if (!"IDButils" %in% installed.packages()[,"Package"]){
+    devtools::install_github("IDButils","timriffe",subdir="IDButils/IDButils")
+    require(IDButils)
+  }
+  
   # read in
   PopR                <- readMat(full.path.mat)[[1]]
   PopR[PopR == -1] <- NA
@@ -48,7 +54,9 @@ loadMpops2R <- function(full.path.mat, PopName = "HUN"){
   PopR$Access                             <- ifelse(PopR$Access == 1, "O", "C")
   
   # send back ordered properly
-  invisible(PopR[, c("PopName", "Area", "Sex", "Age", "AgeInterval", "Type", "Day", 
+  PopR <- PopR[, c("PopName", "Area", "Sex", "Age", "AgeInterval", "Type", "Day", 
     "Month", "Year", "RefCode", "Access", "Population", "NoteCode1", 
-    "NoteCode2", "NoteCode3", "LDB", "Agei", "AgeIntervali")])
+    "NoteCode2", "NoteCode3", "LDB", "Agei", "AgeIntervali")]
+
+  invisible(resortPop(PopR))
 }
