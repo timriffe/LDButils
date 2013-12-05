@@ -13,11 +13,7 @@
 
 loadMpops2R <- function(full.path.mat, PopName = "HUN"){
   
-  if (!"IDButils" %in% installed.packages()[,"Package"]){
-    devtools::install_github("IDButils","timriffe",subdir="IDButils/IDButils")
-  }
-  require(IDButils)
-  # read in
+  # read in library(R.matlab)
   PopR                <- readMat(full.path.mat)[[1]]
   PopR[PopR == -1] <- NA
   PopR                <- as.data.frame(PopR)
@@ -45,7 +41,7 @@ loadMpops2R <- function(full.path.mat, PopName = "HUN"){
   PopR$Type            <- type.rec[as.character(PopR$Type)]
   
   PopR$AgeInterval[PopR$AgeInterval == 0 & !is.na(PopR$AgeInterval)] <- "+"
-  PopR$AgeIntervali                          <- as.integer(PopR$AgeInterval)
+  PopR$AgeIntervali                          <- suppressWarnings(as.integer(PopR$AgeInterval))
   
   PopR$Age[is.na(PopR$Age)]               <- "UNK"
   PopR$Age[PopR$Age == 300]               <- "TOT"
@@ -57,5 +53,5 @@ loadMpops2R <- function(full.path.mat, PopName = "HUN"){
     "Month", "Year", "RefCode", "Access", "Population", "NoteCode1", 
     "NoteCode2", "NoteCode3", "LDB", "Agei", "AgeIntervali")]
 
-  invisible(resortPop(PopR))
+  invisible(resortPops(PopR))
 }
