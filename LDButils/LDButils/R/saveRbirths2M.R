@@ -21,9 +21,13 @@ saveRbirths2M <- function(BirthsRDF, full.path.mat){
                           
   BirthsM$Sex             <- ifelse(BirthsM$Sex == "m", 1,
                                 ifelse(BirthsM$Sex == "f", 2, NA))
-  BirthsM$Access <- ifelse(BirthsM$Access == "O", 1, 0)
+  BirthsM$Access    <- ifelse(BirthsM$Access == "O", 1, 0)
+  BirthsM$NoteCode1 <- suppressWarnings( as.integer( BirthsM$NoteCode1 ) )
+  BirthsM$NoteCode2 <- suppressWarnings( as.integer( BirthsM$NoteCode2 ) )
+  BirthsM$NoteCode3 <- suppressWarnings( as.integer( BirthsM$NoteCode3 ) )
+  BirthsM$RefCode   <- suppressWarnings( as.integer( BirthsM$RefCode ) )
   
-  BirthsM <- as.matrix(BirthsM)
+  BirthsM           <- as.matrix(BirthsM)
   
   writeMat(full.path.mat, births = BirthsM) 
 }

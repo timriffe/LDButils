@@ -28,10 +28,10 @@ saveRdeaths2M <- function(DeathsRDF, full.path.mat){
   DeathsM$Age[DeathsM$Age == "TOT"]               <- 300
   DeathsM$Age                                     <- as.integer(DeathsM$Age)
   DeathsM$Access <- ifelse(DeathsM$Access == "O", 1, 0)
-  DeathsM$NoteCode1 <- as.integer( DeathsM$NoteCode1)
-  DeathsM$NoteCode2 <- as.integer( DeathsM$NoteCode2)
-  DeathsM$NoteCode3 <- as.integer( DeathsM$NoteCode3)
-  DeathsM$RefCode   <- as.integer( DeathsM$RefCode)
+  DeathsM$NoteCode1 <- suppressWarnings( as.integer( DeathsM$NoteCode1 ) )
+  DeathsM$NoteCode2 <- suppressWarnings( as.integer( DeathsM$NoteCode2 ) )
+  DeathsM$NoteCode3 <- suppressWarnings( as.integer( DeathsM$NoteCode3 ) )
+  DeathsM$RefCode   <- suppressWarnings( as.integer( DeathsM$RefCode ) )
   
   DeathsM <- as.matrix(DeathsM)
   DeathsM[is.na(DeathsM)]    <- -1
