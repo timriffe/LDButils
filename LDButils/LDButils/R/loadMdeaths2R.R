@@ -44,7 +44,7 @@ loadMdeaths2R <- function(full.path.mat, PopName = "HUN"){
   
   # TR 9-4-2018 
   # never read in TOT. It would just get removed anyway
-  DeathsR                                       <- DeathsR[DeathsR$Age != 300]              
+  DeathsR                                       <- DeathsR[DeathsR$Age != 300,]              
   DeathsR$Age[is.na(DeathsR$Age)]               <- "UNK"
   
   DeathsR$Agei                                  <- as.integer(DeathsR$Age)
