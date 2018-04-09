@@ -42,7 +42,9 @@ loadMdeaths2R <- function(full.path.mat, PopName = "HUN"){
   DeathsR$Sex   <- ifelse(DeathsR$Sex == 1, "m",
     ifelse(DeathsR$Sex == 2, "f", NA))
   
-  DeathsR$Age[DeathsR$Age == 300]               <- "TOT"
+  # TR 9-4-2018 
+  # never read in TOT. It would just get removed anyway
+  DeathsR                                       <- DeathsR[DeathsR$Age != 300]              
   DeathsR$Age[is.na(DeathsR$Age)]               <- "UNK"
   
   DeathsR$Agei                                  <- as.integer(DeathsR$Age)
